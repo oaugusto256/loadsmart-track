@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './styles/index.scss';
 
 export default class LoadsmartTrack extends Component {
   render() {
