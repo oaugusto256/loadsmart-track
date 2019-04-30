@@ -5,7 +5,10 @@ export default class LoadsmartTrack extends Component {
   render() {
     return (
       <div>
-        <nav>Loadsmart</nav>
+        <nav className="navbar">
+          <div className="logo">Loadsmart</div>
+          <div className="menu" />
+        </nav>
       </div>
     );
   }
