@@ -2,7 +2,7 @@
 
 Loadsmart Front-end challenge to test skills for a Front-end Engineer position.
 
-![alt text](https://github.com/tavioalves/loadsmart-track/blob/master/images/loadsmart-track.jpg)
+![alt text](https://github.com/tavioalves/loadsmart-track/blob/master/images/loadsmart-track.JPG)
 
 ## How to use and test
 
