@@ -54,14 +54,11 @@ body {
   margin-left: auto;
 
   max-width: 1280px;
-
-  .col-inner {
-    flex-basis: 49.5%;
-  }
 }
 
 .shipment-list-collumn {
   height: 90vh;
+  flex-basis: 37.5%;
   background-color: rgb(245, 244, 245);
   border-right: 1px solid #777;
 
@@ -76,6 +73,7 @@ body {
 
 .shipment-selected-collumn {
   height: 90vh;
+  flex-basis: 62.35%;
 }
 
 .no-shipment-selected {
@@ -141,6 +139,11 @@ body {
     margin-top: 10px;
     align-items: center;
 
+    .stop-container {
+      display: flex;
+      align-items: center;
+    }
+
     .next {
       font-weight: bold;
       color: #777;
@@ -190,5 +193,90 @@ body {
   .title {
     font-size: 22px;
     font-weight: bold;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #777;
+  }
+
+  .delivery-info-container {
+    display: flex;
+  }
+
+  .map-container {
+    padding: 10px 5px;
+
+    .map {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .delivery-info {
+    display: flex;
+    flex-basis: 70%;
+    flex-direction: column;
+    padding: 0px 20px;
+
+    .kind-container {
+      margin-top: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #777;
+
+      .kind-title {
+        margin-left: 32px;
+        color: #777;
+        font-size: 14px;
+        font-weight: lighter;
+        text-transform: uppercase;
+      }
+    }
+
+    .kind {
+      display: flex;
+      margin-top: 10px;
+
+      .index {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 25px;
+        width: 25px;
+        color: #fff;
+        background-color: #000;
+        border-radius: 100%;
+
+        margin-right: 10px;
+      }
+
+      .address {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .date {
+        font-size: 14px;
+        font-weight: lighter;
+        color: #777;
+      }
+    }
+  }
+
+  .more-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #777;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #777;
+
+    .equipament-type {
+      display: flex;
+      align-items: center;
+
+      svg {
+        margin-right: 10px;
+      }
+    }
   }
 }

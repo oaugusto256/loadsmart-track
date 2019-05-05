@@ -29,20 +29,22 @@ export default class ShipmentCard extends Component {
           {shipment.stops.map((stop, index) => {
             const date = new Date(stop.windowEnd);
             return (
-              <>
-                <div
-                  key={Math.random()
-                    .toString(36)
-                    .substr(2, 9)}
-                  className="stop"
-                >
+              <div
+                className="stop-container"
+                key={Math.random()
+                  .toString(36)
+                  .substr(2, 9)}
+              >
+                <div className="stop">
                   <div className="address">{`${stop.city}, ${stop.state} ${stop.zipcode}`}</div>
-                  <div className="date">{`${weekday[date.getDay()]}, ${date.getDate()} ${
-                    month[date.getMonth()]
-                  }, ${date.getFullYear()}`}</div>
+                  <div className="date">
+                    {`${weekday[date.getDay()]}, ${date.getDate()} ${
+                      month[date.getMonth()]
+                    }, ${date.getFullYear()}`}
+                  </div>
                 </div>
                 {!(index % 2) && <div className="next">></div>}
-              </>
+              </div>
             );
           })}
         </div>
