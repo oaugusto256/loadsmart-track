@@ -1,7 +1,47 @@
 body {
   font-family: 'Roboto', sans-serif;
+
+  margin: 0px;
 }
 
 .navbar {
-  height: 50px;
+  background-color: rgb(53, 62, 71);
+
+  .container {
+    height: 60px;
+    margin-right: auto;
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    max-width: 1280px;
+  }
+
+  .logo {
+    cursor: pointer;
+
+    .img {
+      max-width: 175px;
+    }
+  }
+
+  .menu {
+    display: flex;
+
+    width: 500px;
+    justify-content: space-between;
+
+    .item {
+      color: rgb(189, 189, 191);
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .item:first-child {
+      color: rgb(41, 212, 86);
+      font-weight: bold;
+    }
+  }
 }
