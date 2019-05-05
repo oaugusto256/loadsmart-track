@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
 import { getShipments } from './api';
+import { weekday, month } from './helpers';
 import TruckIcon from './icons/Truck';
 import ReactLoading from 'react-loading';
 import './styles/index.scss';
@@ -37,30 +38,42 @@ export default class LoadsmartTrack extends Component {
                 {shipments.map(shipment => {
                   console.log(shipment);
                   return (
-                    <div key={shipment.id} className="shipment">
-                      <div className="info">
-                        <TruckIcon height={'40px'} width={'40px'} color={'#777'} />
-                        {`${shipment.equipmentType} ${shipment.equipmentSize}`}''
-                        {shipment.fare}
+                    <>
+                      <div key={shipment.id} className="shipment">
+                        <div className="info">
+                          <span className="name">
+                            <TruckIcon height={'30px'} width={'30px'} />
+                            {`${shipment.equipmentType === 'DRV' ? 'Dry Van' : 'Other'} ${
+                              shipment.equipmentSize
+                            }''`}
+                          </span>
+                          <span className="fare">${shipment.fare}</span>
+                        </div>
+                        <div className="stops">
+                          {shipment.stops.map((stop, index) => {
+                            const date = new Date(stop.windowStart);
+                            return (
+                              <>
+                                <div key={index} className="stop">
+                                  <div className="address">
+                                    {`${stop.city}, ${stop.state} ${stop.zipcode}`}
+                                  </div>
+                                  <div className="date">{`${
+                                    weekday[date.getDay()]
+                                  }, ${date.getDate()} ${
+                                    month[date.getMonth()]
+                                  }, ${date.getFullYear()}`}</div>
+                                </div>
+                                {!(index % 2) && <div className="next">></div>}
+                              </>
+                            );
+                          })}
+                        </div>
                       </div>
-                      <div className="stops">
-                        {shipment.stops.map((stop, index) => {
-                          return (
-                            <div key={index} className="stop">
-                              {stop.address}
-                              {stop.city}
-                              {stop.country}
-                              {stop.state}
-                              {stop.windowEnd}
-                              {stop.windowStart}
-                              {stop.zipcode}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
+                    </>
                   );
                 })}
+                <div className="lastLine" />
               </div>
               <div className="col-inner">Shipment selected info</div>
             </>

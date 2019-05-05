@@ -76,9 +76,61 @@ body {
 
 .shipment {
   height: 125px;
+  padding: 15px 25px;
   background-color: rgb(245, 244, 245);
+  cursor: pointer;
 
   .info {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .name {
+      display: flex;
+      align-items: center;
+      font-weight: lighter;
+
+      color: #777;
+      font-size: 14px;
+
+      svg {
+        color: #777;
+        margin-right: 10px;
+      }
+    }
+
+    .fare {
+      color: #777;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+
+  .stops {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+
+    .next {
+      font-weight: bold;
+      color: #777;
+      margin-right: 20px;
+    }
+
+    .stop {
+      margin-right: 20px;
+
+      .address {
+        color: #515151;
+        font-weight: bold;
+      }
+
+      .date {
+        margin-top: 6px;
+        color: #777;
+        font-size: 12px;
+        font-weight: lighter;
+      }
+    }
   }
 }
