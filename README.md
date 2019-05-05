@@ -1,68 +1,54 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# loadsmart-track
 
-## Available Scripts
+Loadsmart Front-end challenge to test skills for a Front-end Engineer position.
 
-In the project directory, you can run:
+![alt text](https://github.com/tavioalves/loadsmart-track/blob/master/images/loadsmart-track.jpg)
 
-### `npm start`
+## How to use and test
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Clone the repository to a folder of your choice, redirect to the cloned repository and execute the following command:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+```javascript
+yarn install
+```
 
-### `npm test`
+After the installation of the libs and dependencies, start the project executing the command:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```javascript
+yarn start
+```
 
-### `npm run build`
+The project will run at your default browser.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Architecture
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+The project was architectured at the following way:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- src
+  - api // Fetch data from server
+  - components // Reusable components and dumb components
+  - helpers // Methods and functions to manipulate data
+  - images // Images to be used at the project
+  - icons // Icons provided to be used
+- App.js
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## What could be better?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Authentication to use the app
+- Features to update and delete tracks
+- Feature to rate the tracks
+- Show the track' author with date and time
+- Select a track and see more information
+- Show a track map
+- Create an about screen
+- Animations
+- Fetch track data from real server
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## License
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+MIT © 2019
 
-## Learn More
+## Build tool
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project was created using the Create React App.
