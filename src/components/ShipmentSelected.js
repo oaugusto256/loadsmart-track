@@ -1,5 +1,6 @@
 import React from 'react';
 import TruckIcon from '../icons/Truck';
+import IconStar from '../icons/IconStar';
 import map from '../images/map.JPG';
 import { weekday, month } from '../helpers';
 
@@ -46,9 +47,24 @@ export default function ShipmentSelected(props) {
           <TruckIcon height={'30px'} width={'30px'} />
           {`${shipment.equipmentType === 'DRV' ? 'Dry Van' : 'Other'} ${shipment.equipmentSize}''`}
         </div>
-        <div>Commodity</div>
-        <div>Weight</div>
-        <div>Shipper Rating</div>
+        <div className="info">
+          <p>Commodity</p>
+          <p>Apples</p>
+        </div>
+        <div className="info">
+          <p>Weight</p>
+          <p>55.000lbs</p>
+        </div>
+        <div className="info">
+          <p>Shipper Rating</p>
+          <div className="stars">
+            <IconStar width={'10px'} height={'10px'} />
+            <IconStar width={'10px'} height={'10px'} />
+            <IconStar width={'10px'} height={'10px'} />
+            <IconStar width={'10px'} height={'10px'} />
+            <IconStar width={'10px'} height={'10px'} />
+          </div>
+        </div>
       </div>
     </div>
   );
