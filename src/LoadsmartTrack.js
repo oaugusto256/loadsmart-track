@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
 import { getShipments } from './api';
-import { weekday, month } from './helpers';
-import TruckIcon from './icons/Truck';
 import ReactLoading from 'react-loading';
 import './styles/index.scss';
+import ShipmentCard from './components/ShipmentCard';
 
 export default class LoadsmartTrack extends Component {
   state = {
     loading: true,
-    shipments: []
+    shipments: [],
+    shipmentSelectedId: 1
   };
 
   async componentDidMount() {
@@ -21,8 +21,14 @@ export default class LoadsmartTrack extends Component {
     });
   }
 
+  onSelectShipment = async id => {
+    await this.setState({
+      shipmentSelectedId: id
+    });
+  };
+
   render() {
-    const { loading, shipments } = this.state;
+    const { loading, shipments, shipmentSelectedId } = this.state;
 
     return (
       <>
@@ -34,48 +40,34 @@ export default class LoadsmartTrack extends Component {
             </div>
           ) : (
             <>
-              <div className="col-inner shipments">
+              <div className="col-inner shipment-list-collumn">
                 {shipments.map(shipment => {
-                  console.log(shipment);
                   return (
-                    <>
-                      <div key={shipment.id} className="shipment">
-                        <div className="info">
-                          <span className="name">
-                            <TruckIcon height={'30px'} width={'30px'} />
-                            {`${shipment.equipmentType === 'DRV' ? 'Dry Van' : 'Other'} ${
-                              shipment.equipmentSize
-                            }''`}
-                          </span>
-                          <span className="fare">${shipment.fare}</span>
-                        </div>
-                        <div className="stops">
-                          {shipment.stops.map((stop, index) => {
-                            const date = new Date(stop.windowStart);
-                            return (
-                              <>
-                                <div key={index} className="stop">
-                                  <div className="address">
-                                    {`${stop.city}, ${stop.state} ${stop.zipcode}`}
-                                  </div>
-                                  <div className="date">{`${
-                                    weekday[date.getDay()]
-                                  }, ${date.getDate()} ${
-                                    month[date.getMonth()]
-                                  }, ${date.getFullYear()}`}</div>
-                                </div>
-                                {!(index % 2) && <div className="next">></div>}
-                              </>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    </>
+                    <ShipmentCard
+                      key={shipment.id}
+                      shipment={shipment}
+                      onClick={this.onSelectShipment}
+                      selected={shipmentSelectedId === shipment.id}
+                    />
                   );
                 })}
                 <div className="lastLine" />
               </div>
-              <div className="col-inner">Shipment selected info</div>
+              <div className="col-inner shipment-selected-collumn">
+                {shipmentSelectedId === '' ? (
+                  <div className="no-shipment-selected">
+                    <p>No shipment selected!</p>
+                  </div>
+                ) : (
+                  <div className="shipment-selected">
+                    <div className="title">
+                      {shipments[shipmentSelectedId - 1].stops.map(stop => {
+                        return `${stop.city}, ${stop.state} ${stop.zipcode}`;
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
             </>
           )}
         </div>
