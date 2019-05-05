@@ -4,7 +4,7 @@ import logo from '../images/logo.png';
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <div className="container">
+      <div className="nav-container">
         <div className="logo">
           <img className="img" src={logo} alt="Loadsmart Logo" />
         </div>

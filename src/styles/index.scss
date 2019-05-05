@@ -7,7 +7,7 @@ body {
 .navbar {
   background-color: rgb(53, 62, 71);
 
-  .container {
+  .nav-container {
     height: 10vh;
     margin-right: auto;
     margin-left: auto;
@@ -276,6 +276,28 @@ body {
 
       svg {
         margin-right: 10px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .col-inner {
+    height: unset;
+  }
+}
+
+@media only screen and (max-width: 690px) {
+  .navbar {
+    .nav-container {
+      justify-content: center;
+
+      .menu {
+        display: none !important;
       }
     }
   }

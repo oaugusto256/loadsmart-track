@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import Navbar from './components/Navbar';
-import { getShipments } from './api';
 import ReactLoading from 'react-loading';
-import './styles/index.scss';
-import map from './images/map.JPG';
-import { weekday, month } from './helpers';
+import Navbar from './components/Navbar';
 import ShipmentCard from './components/ShipmentCard';
-import TruckIcon from './icons/Truck';
+import { getShipments } from './api';
+import './styles/index.scss';
+import ShipmentSelected from './components/ShipmentSelected';
 
 export default class LoadsmartTrack extends Component {
   state = {
@@ -62,59 +60,7 @@ export default class LoadsmartTrack extends Component {
                     <p>No shipment selected!</p>
                   </div>
                 ) : (
-                  <div className="shipment-selected">
-                    {console.log(shipments[shipmentSelectedId - 1])}
-                    <div className="title">
-                      {shipments[shipmentSelectedId - 1].stops.map(stop => {
-                        return `${stop.city}, ${stop.state} ${stop.zipcode}`;
-                      })}
-                    </div>
-                    <div className="delivery-info-container">
-                      <div className="delivery-info">
-                        {shipments[shipmentSelectedId - 1].stops.map((stop, index) => {
-                          const date = new Date(stop.windowEnd);
-                          return (
-                            <div key={index} className="kind-container">
-                              {!(index % 2) ? (
-                                <div className="kind-title">Pick-Up</div>
-                              ) : (
-                                <div className="kind-title">Delivery</div>
-                              )}
-                              <div className="kind">
-                                <div className="index">{index + 1}</div>
-                                <div>
-                                  <div className="address">{`${stop.city}, ${stop.state} ${
-                                    stop.zipcode
-                                  }`}</div>
-                                  <div className="date">{`${
-                                    weekday[date.getDay()]
-                                  }, ${date.getDate()} ${
-                                    month[date.getMonth()]
-                                  }, ${date.getFullYear()}`}</div>
-                                </div>
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-                      <div className="map-container">
-                        <img className="map" src={map} alt="Map" />
-                      </div>
-                    </div>
-                    <div className="more-info">
-                      <div className="equipament-type">
-                        <TruckIcon height={'30px'} width={'30px'} />
-                        {`${
-                          shipments[shipmentSelectedId - 1].equipmentType === 'DRV'
-                            ? 'Dry Van'
-                            : 'Other'
-                        } ${shipments[shipmentSelectedId - 1].equipmentSize}''`}
-                      </div>
-                      <div>Commodity</div>
-                      <div>Weight</div>
-                      <div>Shipper Rating</div>
-                    </div>
-                  </div>
+                  <ShipmentSelected shipment={shipments[shipmentSelectedId - 1]} />
                 )}
               </div>
             </>
