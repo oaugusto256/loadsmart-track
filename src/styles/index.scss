@@ -301,4 +301,20 @@ body {
       }
     }
   }
+
+  .more-info {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .map-container {
+    .map {
+      display: none;
+    }
+  }
+
+  .delivery-info {
+    flex-basis: 100%;
+  }
 }
